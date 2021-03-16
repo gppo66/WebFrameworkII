@@ -1,10 +1,6 @@
 package helloHibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,4 +25,8 @@ public class Product {
 
 	private String description;
 
+//	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne
+	@JoinColumn(name="category_id")
+	private Category category;
 }
